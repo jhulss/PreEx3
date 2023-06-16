@@ -10,7 +10,13 @@ describe("Publicar un nuevo post", () => {
     cy.get("#resultado-div").should("contain", detalle);
   });
 
-
+  it("No permite que el titulo exceda los 50 caracteres", () => {
+    const titulo = "lkjhdfljk aaflkjhsa ldfalskd jhfasjdhf alskdjhf asdkjfha sdjhflaksd jfhk jsdflka s";
+    cy.visit("/");
+    cy.get("#titulo").type(titulo);
+    cy.get("#postForm").submit();
+    cy.get("#resultado-div").should("contain", "El título excede la longitud máxima permitida"); 
+  });
 
   
 
