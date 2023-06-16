@@ -1,7 +1,15 @@
-import sumar from "./sumador.js";
+import Post from "./sumador.js";
 
-describe("Sumar", () => {
-  it("deberia sumar dos numeros", () => {
-    expect(sumar(3, 2)).toEqual(5);
+describe("Postear", () => {
+  it("deberia postear un nuevo post", () => {
+    const postear = new Post();
+    const titulo = "Título del post";
+    const detalle = "Contenido detallado del post";
+    const resultado = postear.publicarPost(titulo, detalle);
+    expect(resultado).toEqual([
+      { titulo: titulo, detalle: detalle }
+    ]);
   });
+
+  
 });
