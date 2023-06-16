@@ -27,5 +27,13 @@ describe("Postear", () => {
     expect(resultado).toEqual("El título excede la longitud máxima permitida");
   });
 
+  it("No deberia permitir que el detalle sobrepase los 150 caracteres", () => {
+    const postear = new Post();
+    const titulo = "Holi";
+    const detalle = "Contenido detallado del post vasdf sdf asdfasdc asdc asdf asgearg werf sdf wef asdfwqef asdfv sdgf sdfghbkasdhjfgksahdgf sadhflkajdshflkajdshf asjdfalsjhdfelakjhyfaiwuehf iaw f";
+    const resultado = postear.publicarPost(titulo, detalle);
+    expect(resultado).toEqual("El detalle excede la longitud máxima permitida");
+  });
+
   
 });
